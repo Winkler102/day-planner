@@ -1,7 +1,7 @@
 currentDate = moment().format("dddd, MMMM Do YYYY")
 $("#currentDay").text(currentDate);
 
-$("#textDiv").on("click", function () {
+$("#textDiv9am").on("click", function () {
     var text = $(".text9am")
         .text()
         .trim();
