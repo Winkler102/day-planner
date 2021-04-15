@@ -4,7 +4,7 @@
 An hourly planner for a 9 hour 9-5 job
 
 ## Website
-
+<a href="https://winkler102.github.io/day-planner/">website</a>
 
 ## Usage 
 Used to plan a 9-5 work day.
