@@ -4,7 +4,7 @@ body {
   line-height: 1;
 }
 
-textarea, #textDiv9am p {
+textarea {
   background: transparent;
   border: none;
   resize: none;
@@ -13,6 +13,10 @@ textarea, #textDiv9am p {
   padding: 10px;
   width: 100%;
   height: 100%;
+}
+
+.pad10px {
+  padding: 10px;
 }
 
 .jumbotron {
