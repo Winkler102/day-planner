@@ -64,119 +64,20 @@ function load() {
 }
 
 const timeDetect = function () {
-    switch (moment().hour()) {
-        case (9):
-            $("#textDiv1").removeClass("future past present");
-            $("#textDiv1").addClass("present");
-
-            $("#textDiv2, #textDiv3 , #textDiv4, #textDiv5, #textDiv6, #textDiv7, #textDiv8, #textDiv9")
-                .removeClass("future past present")
-                .addClass("future");
-            break;
-        case (10):
-            $("#textDiv2").removeClass("future past present");
-            $("#textDiv2").addClass("present");
-
-            $("#textDiv1")
-                .removeClass("future past present")
-                .addClass("past");
-
-            $("#textDiv3 , #textDiv4, #textDiv5, #textDiv6, #textDiv7, #textDiv8, #textDiv9")
-                .removeClass("future past present")
-                .addClass("future");
-            break;
-        case (11):
-            $("#textDiv3").removeClass("future past present");
-            $("#textDiv3").addClass("present");
-
-            $("#textDiv1, #textDiv2")
-                .removeClass("future past present")
-                .addClass("past");
-
-            $("#textDiv4, #textDiv5, #textDiv6, #textDiv7, #textDiv8, #textDiv9")
-                .removeClass("future past present")
-                .addClass("future");
-            break;
-        case (12):
-            $("#textDiv4").removeClass("future past present");
-            $("#textDiv4").addClass("present");
-
-            $("#textDiv1, #textDiv2, #textDiv3")
-                .removeClass("future past present")
-                .addClass("past");
-
-            $("#textDiv5, #textDiv6, #textDiv7, #textDiv8, #textDiv9")
-                .removeClass("future past present")
-                .addClass("future");
-            break;
-        case (13):
-            $("#textDiv5").removeClass("future past present");
-            $("#textDiv5").addClass("present");
-
-            $("#textDiv1, #textDiv2, #textDiv3, #textDiv4")
-                .removeClass("future past present")
-                .addClass("past");
-
-            $("#textDiv6, #textDiv7, #textDiv8, #textDiv9")
-                .removeClass("future past present")
-                .addClass("future");
-            break;
-        case (14):
-            $("#textDiv6").removeClass("future past present");
-            $("#textDiv6").addClass("present");
-
-            $("#textDiv1, #textDiv2, #textDiv3, #textDiv4, #textDiv5")
-                .removeClass("future past present")
-                .addClass("past");
-
-            $("#textDiv7, #textDiv8, #textDiv9")
-                .removeClass("future past present")
-                .addClass("future");
-            break;
-        case (15):
-            $("#textDiv7").removeClass("future past present");
-            $("#textDiv7").addClass("present");
-
-            $("#textDiv1, #textDiv2, #textDiv3, #textDiv4, #textDiv5, #textDiv6")
-                .removeClass("future past present")
-                .addClass("past");
-
-            $("#textDiv8, #textDiv9")
-                .removeClass("future past present")
-                .addClass("future");
-            break;
-        case (16):
-            $("#textDiv8").removeClass("future past present");
-            $("#textDiv8").addClass("present");
-
-            $("#textDiv1, #textDiv2, #textDiv3, #textDiv4, #textDiv5, #textDiv6, #textDiv7")
-                .removeClass("future past present")
-                .addClass("past");
-
-            $("#textDiv9")
-                .removeClass("future past present")
-                .addClass("future");
-            break;
-        case (17):
-            $("#textDiv9").removeClass("future past present");
-            $("#textDiv9").addClass("present");
-
-            $("#textDiv1, #textDiv2, #textDiv3, #textDiv4, #textDiv5, #textDiv6, #textDiv7, #textDiv8")
-                .removeClass("future past present")
-                .addClass("past");
-            break;
-
-        default:
-            if (moment().hour() < 9) {
-                $("#textDiv1, #textDiv2, #textDiv3 , #textDiv4, #textDiv5, #textDiv6, #textDiv7, #textDiv8, #textDiv9")
-                    .removeClass("future past present")
-                    .addClass("future");
-            } else {
-                $("#textDiv1, #textDiv2, #textDiv3 , #textDiv4, #textDiv5, #textDiv6, #textDiv7, #textDiv8, #textDiv9")
-                    .removeClass("future past present")
-                    .addClass("past");
-            }
-            break;
+    let hour = moment().hour();
+    for (i = 1; i < 10; i++) {
+        let timeDiv = "#textDiv" + i;
+        let currentHour = i + 8;
+        if (currentHour < hour) {
+            $(timeDiv).removeClass("future past present");
+            $(timeDiv).addClass("past");
+        } else if (currentHour > hour) {
+            $(timeDiv).removeClass("future past present");
+            $(timeDiv).addClass("future");
+        } else {
+            $(timeDiv).removeClass("future past present");
+            $(timeDiv).addClass("present");
+        }
     }
 }
 
